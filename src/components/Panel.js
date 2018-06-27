@@ -4,7 +4,7 @@ const Panel = (props) => {
   return(
     <nav className='panel'>
       <p className='panel-heading'>
-        Search Medicines Module Hello
+        Search Medicines
       </p>
       <div className="panel-block">
         <p className="control has-icons-left">

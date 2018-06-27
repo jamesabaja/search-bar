@@ -1,0 +1,30 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App {
+  font-family: 'Tajawal', sans-serif;
+  padding: 30px;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+option, input, button, .panel {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.panel-block {
+  color: black;
+  background-color: white;
+}
+
+.is-active {
+  background-color: lightgoldenrodyellow;
+}
+
+

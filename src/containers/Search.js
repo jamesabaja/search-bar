@@ -75,10 +75,14 @@ class Search extends Component {
           break;
         }
       }
-      this.setState({
-        sku: values[0],
-        price: values[1]
-      });
+      if(values === undefined) {
+        document.getElementById('addcart').classList.toggle('is-active');  
+      }else {
+        this.setState({
+          sku: values[0],
+          price: values[1]
+        });
+      }
     }
   }
 

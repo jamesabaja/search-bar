@@ -400,7 +400,7 @@ class Search extends Component {
        * 2: search unsuccessful
        * 1: search successful
        */
-    } else {
+    }else {
       /*
        * Check if search input matches any molecule 
        */

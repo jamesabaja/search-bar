@@ -7,9 +7,6 @@
  *  IT Team
  */
 
- /*
-  * Add comment 
-  */
 /*
  * Project Files Initial Creation Date: 6/19/18
  * Development Group: James Abaja

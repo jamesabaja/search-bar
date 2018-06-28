@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Modal = ({sku, func, price}) => {
+const Modal = ({sku, func, price, isActive}) => {
   return(
-    <div className="modal" id='addcart'>
+    <div className={isActive ? 'modal is-active':'modal'} id='addcart'>
         <div className="modal-background"></div>
         <div className="modal-card">
           <header className="modal-card-head">

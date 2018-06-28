@@ -32,7 +32,8 @@ class Search extends Component {
       sku: '',
       price: '',
       isFuzzy: false,
-      falseMatch: ''
+      falseMatch: '',
+      modalIsActive: false
     };
   }
 
@@ -45,6 +46,9 @@ class Search extends Component {
 
   modalClose() {
     document.getElementById('addcart').classList.remove('is-active');
+    this.setState({
+      modalIsActive: false
+    });
   }
 
   /*
@@ -60,13 +64,17 @@ class Search extends Component {
     /*
      * Open modal by adding 'is-active' to its classlist 
      */
-    let isActive = document.getElementById("addcart").classList.toggle('is-active');
-    if(isActive) {
+    //let isActive = document.getElementById("addcart").classList.toggle('is-active');
+    
+    if(this.state.modalIsActive === false) {
       /*
        * Get all elements with the 'a' tag, and get the 'a' tag
        * that is active (tag contains 'is-active' in its classes),
        * and get its values to be displayed in the modal.
        */
+      this.setState({
+        modalIsActive: true
+      });
       let links = document.getElementsByTagName("a");
       let values;
       for(let i = 0; i < links.length; i++) {
@@ -76,13 +84,20 @@ class Search extends Component {
         }
       }
       if(values === undefined) {
-        document.getElementById('addcart').classList.toggle('is-active');  
+        //document.getElementById('addcart').classList.toggle('is-active');
+        this.setState({
+          modalIsActive: false
+        });  
       }else {
         this.setState({
           sku: values[0],
           price: values[1]
         });
       }
+    }else {
+      this.setState({
+        modalIsActive:false
+      });
     }
   }
 
@@ -101,8 +116,10 @@ class Search extends Component {
     /*
      * Open modal by adding 'is-active' to its classlist 
      */
-    let isActive = document.getElementById("addcart").classList.toggle('is-active');
-    if(isActive) {
+    this.setState({
+      modalIsActive: true
+    });
+    if(this.state.modalIsActive) {
       this.setState({
         sku: name[0],
         price: name[1]
@@ -627,6 +644,8 @@ class Search extends Component {
         /*
          * ENTER key 
          * Open the modal when an item is selected
+         * or close the modal if it is currently 
+         * opened
          */
         this.openModal();
         break;
@@ -697,7 +716,7 @@ class Search extends Component {
   render() {
     return (
       <div className='App'>
-        <Modal sku={this.state.sku} price={this.state.price} func={this.modalClose}/>
+        <Modal sku={this.state.sku} price={this.state.price} func={this.modalClose} isActive={this.state.modalIsActive}/>
         <Panel onChange={this.handleChange} isLoading={this.state.loading} isEmpty={this.state.empty} search={this.state.searchResults} clickModal={this.clickModal} isFuzzy={this.state.isFuzzy}/>
       </div>
     );

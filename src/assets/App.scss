@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Work+Sans');
+
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .App {
-  font-family: 'Tajawal', sans-serif;
+  font-family: 'Lato', sans-serif;
   padding: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+option, input, button, .panel, div {
+  font-family: 'Lato', sans-serif;
 }
 
 html {
@@ -14,8 +23,10 @@ html {
   background: white;
 }
 
-option, input, button, .panel {
-  font-family: 'Tajawal', sans-serif;
+.center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 .panel-block {
@@ -27,4 +38,15 @@ option, input, button, .panel {
   background-color: lightgoldenrodyellow;
 }
 
+.panel-heading {
+  color: white;
+  background-color: #007070;
+}
 
+.heading {
+  color: #007070;
+}
+
+.primary-color {
+  color: #007070;
+}

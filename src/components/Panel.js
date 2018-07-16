@@ -24,11 +24,17 @@ const Panel = (props) => {
       <a className={i === 0 ? 'panel-block is-active' : 'a panel-block'} key={i} name={val.sku + ',' + val.unit_price} onClick={() => props.clickModal(val.sku + ',' + val.unit_price)}>
       {val.molecule !== '' && val.form !== '' ? 
       <div>
-      <span dangerouslySetInnerHTML={{__html: val.molecule}}/> (<span dangerouslySetInnerHTML={{__html: val.brand}}/>)
-      <p>{val.strength} {val.form} &#8369;{val.unit_price}</p>
+      <span className='primary-color' dangerouslySetInnerHTML={{__html: val.molecule}}/> <span className='primary-color'>(<span className='primary-color' dangerouslySetInnerHTML={{__html: val.brand}}/>)</span>
+      <p>{val.strength} {val.form} </p><p>Price: &#8369;{val.unit_price}</p>
       </div> :
-      <p>{val.sku}<br/>{val.strength} {val.form} &#8369;{val.unit_price} </p>}
+      <div><p><span className='primary-color'>{val.sku}</span><br/>{val.strength} {val.form}</p><p>Price: &#8369;{val.unit_price} </p></div>}
       </a>)}
+      {props.search.length === 0 && 
+      <div className='panel-block'>
+        <div className='tile box center-text'>
+          <p className='subtitle is-5'>Search medicines and add them to your cart.</p>
+        </div>
+      </div>}
       </div>
     </nav>
   );

@@ -113,6 +113,10 @@ class Search extends Component {
 
   clickModal(name) {
     name = name.split(',');
+    this.setState({
+      sku: name[0],
+      price: name[1]
+    });
     /*
      * Open modal by adding 'is-active' to its classlist 
      */
@@ -717,7 +721,42 @@ class Search extends Component {
     return (
       <div className='App'>
         <Modal sku={this.state.sku} price={this.state.price} func={this.modalClose} isActive={this.state.modalIsActive}/>
-        <Panel onChange={this.handleChange} isLoading={this.state.loading} isEmpty={this.state.empty} search={this.state.searchResults} clickModal={this.clickModal} isFuzzy={this.state.isFuzzy}/>
+        <div className='columns'>
+          <div className='column is-two-thirds'>
+            <Panel onChange={this.handleChange} isLoading={this.state.loading} isEmpty={this.state.empty} search={this.state.searchResults} clickModal={this.clickModal} isFuzzy={this.state.isFuzzy}/>
+          </div>
+          <div className='column'>
+            <article className="tile is-parent box">
+              <div className="content">
+                <strong><p className="title has-text-centered is-4">Cart</p></strong>
+                <div className="content">
+                  <p className='subtitle heading is-6'>Prescriptions (0)</p>
+                  <div className='tile is-child box'>
+                    <p>You have no prescriptions in your list.</p>
+                    <p><a>Upload Prescription</a></p>
+                  </div>
+                </div>
+                <div className="content">
+                  <p className='subtitle heading is-6'>Medicines (0)</p>
+                  <div className='tile is-child box'>
+                    <p>You have no medicines in your list.</p>
+                  </div>
+                </div>
+                <div className='content'>
+                  <p>Sign in to use a coupon or add attachments.</p>
+                  <br/>
+                  <p className='subtitle heading is-6'>Subtotal: ₱ 0.00</p>
+                  <p>Subtotal does not include prices of medicines in prescription. Service fee will be calculated upon checkout. Coupon code will be applied upon checkout.</p>
+                </div>
+                <div className='content'>
+                  <div className='button is-fullwidth' disabled>
+                    Checkout
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     );
   }
